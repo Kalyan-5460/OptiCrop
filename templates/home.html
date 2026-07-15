@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}OptiCrop - Precision Agriculture Recommendation Engine{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <span class="hero-tagline">AI-Powered Farming Insights</span>
+        <h1>Precision Agriculture For Maximum Yields</h1>
+        <p>OptiCrop is an advanced machine learning-powered decision engine designed to optimize agricultural crop selection. By analyzing soil parameters (N, P, K) and regional environmental data (temperature, humidity, pH, rainfall), OptiCrop predicts the most viable and productive crops for your land.</p>
+        <div class="hero-actions">
+            <a href="{{ url_for('findyourcrop') }}" class="btn btn-primary">Start Crop Prediction</a>
+            <a href="{{ url_for('about') }}" class="btn btn-secondary">Learn More</a>
+        </div>
+    </div>
+    <div class="hero-visual">
+        <div class="hero-visual-card">
+            <img src="{{ url_for('static', filename='images/agriculture_fields.jpg') }}" alt="Modern Agriculture fields visual">
+            <div class="overlay-text">
+                <h3>Data-Driven Insights</h3>
+                <p>98% Prediction Accuracy</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

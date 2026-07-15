@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OptiCrop is an AI-powered smart agricultural recommendation system that helps farmers identify the best crops to grow based on environmental and soil variables.">
+    <title>{% block title %}OptiCrop - Smart Agricultural Production Optimization{% endblock %}</title>
+    
+    <!-- Link Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <!-- Favicon (Fallback emoji) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌱</text></svg>">
+    
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="{{ url_for('home') }}">🌱 Opti<span>Crop</span></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('home') }}" id="nav-home">Home</a></li>
+                    <li><a href="{{ url_for('about') }}" id="nav-about">About</a></li>
+                    <li><a href="{{ url_for('findyourcrop') }}" id="nav-findyourcrop">Find Your Crop</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2026 OptiCrop Engine. Designed for Skill Wallet Project Submission.</p>
+            <p>Powered by Advanced Machine Learning models. <a href="https://github.com" target="_blank">View on GitHub</a></p>
+        </div>
+    </footer>
+
+    <!-- Highlight active navigation link -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentPath = window.location.pathname;
+            if (currentPath === "/") {
+                document.getElementById("nav-home").classList.add("active");
+            } else if (currentPath === "/about") {
+                document.getElementById("nav-about").classList.add("active");
+            } else if (currentPath === "/findyourcrop" || currentPath === "/predict") {
+                document.getElementById("nav-findyourcrop").classList.add("active");
+            }
+        });
+    </script>
+</body>
+</html>

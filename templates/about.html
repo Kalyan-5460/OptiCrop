@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}About OptiCrop - The Machine Learning Engine{% endblock %}
+
+{% block content %}
+<section class="about-section">
+    <div class="about-header">
+        <span class="hero-tagline">Project Overview</span>
+        <h2>About OptiCrop Engine</h2>
+        <p>OptiCrop is developed to resolve uncertainties in farming decisions. By leveraging supervised machine learning (Logistic Regression), the engine matches complex soil and atmospheric variables to appropriate crop classes with high statistical confidence.</p>
+    </div>
+
+    <div class="about-grid">
+        <div class="info-card">
+            <h3>Soil Nutrients</h3>
+            <p>Monitors <strong>Nitrogen (N)</strong>, <strong>Phosphorous (P)</strong>, and <strong>Potassium (K)</strong> content of the soil in mg/kg. These three macronutrients are critical for crop growth and development.</p>
+        </div>
+        <div class="info-card">
+            <h3>Climate Factors</h3>
+            <p>Analyzes environmental conditions such as <strong>Temperature</strong> (in °C), relative <strong>Humidity</strong> (in %), and <strong>Rainfall</strong> (in mm) to identify seasonal compatibility.</p>
+        </div>
+        <div class="info-card">
+            <h3>Soil Acidity</h3>
+            <p>Reads the soil <strong>pH value</strong>, which influences nutrient availability and biological activity, ensuring crops are placed in chemically friendly soil.</p>
+        </div>
+    </div>
+
+    <div class="glass-card">
+        <h3 style="color: var(--primary-green); font-size: 1.6rem; margin-bottom: 1.2rem;">Model Performance & Architecture</h3>
+        <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem;">
+            The model is trained on a public dataset comprising 2,200 observation records mapping agricultural attributes. After filtering statistical outliers via Interquartile Range (IQR), a <strong>Logistic Regression</strong> model is fitted to perform 22-class classification. The model attains an overall <strong>98% classification accuracy</strong>.
+        </p>
+        <div style="border-top: 1px solid var(--glass-border); padding-top: 1.5rem;">
+            <h4 style="margin-bottom: 0.8rem; font-weight: 600;">Project Team Members:</h4>
+            <ul style="list-style: none; display: flex; flex-wrap: wrap; gap: 1.5rem; color: var(--text-secondary);">
+                <li>👑 <strong>Nehan Chowdary Muvva</strong> (Team Lead)</li>
+                <li>👨‍💻 Jaswanth Malapareddy</li>
+                <li>👨‍💻 Madasu Rushi Venkata Ganesh</li>
+                <li>👩‍💻 Rajani Meesala</li>
+                <li>👩‍💻 Mounika Sonti</li>
+            </ul>
+        </div>
+    </div>
+</section>
+{% endblock %}

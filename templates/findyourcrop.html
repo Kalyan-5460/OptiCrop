@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block title %}Find Your Best Crop - OptiCrop Recommendation{% endblock %}
+
+{% block content %}
+<div style="max-width: 800px; margin: 0 auto;">
+    <div style="text-align: center; margin-bottom: 2.5rem;">
+        <span class="hero-tagline">Decision Portal</span>
+        <h2>Crop Recommendation Engine</h2>
+        <p style="color: var(--text-secondary); margin-top: 0.5rem;">Enter your soil parameters and environmental conditions below to predict the optimal crop.</p>
+    </div>
+
+    <div class="glass-card">
+        <form action="{{ url_for('predict') }}" method="POST">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="nitrogen">Nitrogen (N)</label>
+                    <div class="input-container">
+                        <input type="number" step="any" id="nitrogen" name="nitrogen" placeholder="e.g. 105" required value="{{ nitrogen if nitrogen is not none else '' }}">
+                        <span class="input-unit">mg/kg</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phosphorous">Phosphorous (P)</label>
+                    <div class="input-container">
+                        <input type="number" step="any" id="phosphorous" name="phosphorous" placeholder="e.g. 35" required value="{{ phosphorous if phosphorous is not none else '' }}">
+                        <span class="input-unit">mg/kg</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="potassium">Potassium (K)</label>
+                    <div class="input-container">
+                        <input type="number" step="any" id="potassium" name="potassium" placeholder="e.g. 40" required value="{{ potassium if potassium is not none else '' }}">
+                        <span class="input-unit">mg/kg</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="temperature">Temperature</label>
+                    <div class="input-container">
+                        <input type="number" step="any" id="temperature" name="temperature" placeholder="e.g. 25.0" required value="{{ temperature if temperature is not none else '' }}">
+                        <span class="input-unit">°C</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="humidity">Relative Humidity</label>
+                    <div class="input-container">
+                        <input type="number" step="any" id="humidity" name="humidity" placeholder="e.g. 64.0" required value="{{ humidity if humidity is not none else '' }}">
+                        <span class="input-unit">%</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="ph">Soil pH</label>
+                    <div class="input-container">
+                        <input type="number" step="any" min="0" max="14" id="ph" name="ph" placeholder="e.g. 7.0" required value="{{ ph if ph is not none else '' }}">
+                        <span class="input-unit">pH</span>
+                    </div>
+                </div>
+
+                <div class="form-group form-group-full">
+                    <label for="rainfall">Average Rainfall</label>
+                    <div class="input-container">
+                        <input type="number" step="any" id="rainfall" name="rainfall" placeholder="e.g. 160.0" required value="{{ rainfall if rainfall is not none else '' }}">
+                        <span class="input-unit">mm</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <button type="submit" class="btn btn-primary" style="width: 100%; max-width: 300px;">Generate Recommendation</button>
+            </div>
+        </form>
+
+        {% if prediction_text %}
+            <div class="prediction-box {% if prediction_success %}prediction-success{% endif %}">
+                <p class="prediction-result">
+                    {% if prediction_success %}
+                        🎉 <strong>Recommended Crop:</strong> <span>{{ prediction_text.split('is ')[-1] }}</span>
+                    {% else %}
+                        ⚠️ {{ prediction_text }}
+                    {% endif %}
+                </p>
+                {% if prediction_success %}
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.5rem;">
+                        This crop fits your soil chemistry and climatic bounds perfectly.
+                    </p>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
