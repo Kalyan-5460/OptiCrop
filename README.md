@@ -72,9 +72,3 @@ python test_app.py
 *   👩‍💻 **Mounika Sonti**
 
 ---
-
-   # Push to the main branch
-   git branch -M main
-   git push -u origin main
-   ```
-3. Submit the GitHub URL to complete your Skill Wallet project!
