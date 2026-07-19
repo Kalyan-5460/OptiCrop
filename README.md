@@ -4,7 +4,7 @@ OptiCrop is an AI-powered smart agricultural recommendation system designed to s
 
 This project is built using Python, Flask, Pandas, and Scikit-learn, ready to be pushed to GitHub to complete the **Skill Wallet** task.
 
-https://opticrop-qwdt.onrender.com/
+Project link on render :- https://opticrop-qwdt.onrender.com/
 
 ---
 
@@ -70,21 +70,6 @@ python test_app.py
 
 ---
 
-## 📤 Submitting to GitHub
-To push this project to your GitHub repository:
-
-1. Create a new repository on [GitHub](https://github.com/new) called `OptiCrop`.
-2. Open your terminal in this directory and execute:
-   ```bash
-   # Add all files to staging
-   git add .
-   
-   # Commit changes
-   git commit -m "Initial commit: Completed OptiCrop ML model and Flask web app"
-   
-   # Add your remote repository (Replace with your actual repo link)
-   git remote add origin https://github.com/YOUR_USERNAME/OptiCrop.git
-   
    # Push to the main branch
    git branch -M main
    git push -u origin main
