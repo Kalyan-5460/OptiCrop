@@ -5,7 +5,7 @@ OptiCrop is an AI-powered smart agricultural recommendation system designed to s
 This project is built using Python, Flask, Pandas, and Scikit-learn, ready to be pushed to GitHub to complete the **Skill Wallet** task.
 
 Project link on render :- https://opticrop-qwdt.onrender.com/
-
+Project demo video link :- https://videotourl.com/videos/1784141907002-ce4639e7-6399-4df4-9415-a0ee7893b8ee.mp4
 ---
 
 ## 🌟 Project Architecture & Workflow
